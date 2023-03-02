@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="WinDateFromUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinDateFromUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Page.Content>
+        <Grid>
+            <Grid x:Name="Applicazione">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image Source="background.jpg" Grid.ColumnSpan="2" Grid.RowSpan="6" Grid.Row="0" Grid.Column="0" />
+                <TextBlock x:Name="tbnome" Grid.Row="0" Grid.Column="0" Text="Insert the name: " />
+                <TextBox x:Name="nome" Grid.Row="0" Grid.Column="1" />
+                <TextBlock x:Name="tbdata" Grid.Row="1" Grid.Column="0" Text="Insert the date: " />
+                <DatePicker x:Name="data" Grid.Row="1" Grid.Column="1" />
+                <Button x:Name="calcola" Click="calcola_Click" Grid.Row="2" Grid.Column="0" Opacity="0.5">Calculate</Button>
+                <TextBlock x:Name="risultato" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="" />
+                <TextBlock x:Name="anniversario" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="" />
+                <Button Click="OnInformationi_Clicked" Grid.Row="5" Grid.Column="0">Informations</Button>
+            </Grid>
+            <Grid x:Name="Informazioni" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image Source="background.jpg" Grid.Row="0" Grid.RowSpan="7"/>
+                <TextBlock Grid.Row="0" Text="© Giulio Sorrentino 2023, some right reserved" />
+                <TextBlock Grid.Row="1" Text="If you give it a name and a date it shows how many time passess from that date" />
+                <TextBlock Grid.Row="2" Text="Special thanks to my three (mis)fortunes" />
+                <TextBlock Grid.Row="3" Text="License: GPL v3 or, in your humble opinion, any later version" />
+                <Button Grid.Row="4" Click="Informations_Click">Informations</Button>
+                <Button Grid.Row="5" Click="DeleteSettings_Clicked">Delete Settings</Button>
+                <Button Grid.Row="6" Click="OnApp_Clicked">Application</Button>
+            </Grid>
+        </Grid>
+    </Page.Content>
+</Page>
