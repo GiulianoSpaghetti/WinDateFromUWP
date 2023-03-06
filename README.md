@@ -2,7 +2,7 @@
 
 Un programma per verificare quanto tempo è passato dalla "nascita" dei tuoi cari in UWP per XBoX.
 
-# Come installare (attulamente è ancora in xamarin)
+# Come installare (attualmente è ancora in xamarin)
 
 [![microsoft](https://get.microsoft.com/images/en-us%20dark.svg)](https://www.microsoft.com/store/apps/9P681NKNBLSF)
 
