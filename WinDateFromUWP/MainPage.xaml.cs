@@ -30,6 +30,7 @@ namespace WinDateFromUWP
         public MainPage()
         {
             string s;
+            Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
             this.InitializeComponent();
             container = localSettings.CreateContainer("WinDateFrom", Windows.Storage.ApplicationDataCreateDisposition.Always);
             s = localSettings.Containers["WinDateFrom"].Values["Data"] as string;
