@@ -32,7 +32,7 @@ namespace WinDateFromUWP
             string s;
             Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
             this.InitializeComponent();
-            container = localSettings.CreateContainer("WinDateFrom", Windows.Storage.ApplicationDataCreateDisposition.Always);
+            container = localSettings.CreateContainer("WinDateFrom", Windows.Storage.ApplicationDataCreateDisposition.Existing);
             s = localSettings.Containers["WinDateFrom"].Values["Data"] as string;
             if (s == null)
                 data.Date= DateTime.Now;
