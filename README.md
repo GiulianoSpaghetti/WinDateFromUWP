@@ -2,9 +2,12 @@
 
 Un programma per verificare quanto tempo è passato dalla "nascita" dei tuoi cari in UWP per XBoX.
 
-# Come installare (attualmente è ancora in xamarin)
+# Come installare 
 
-[![microsoft](https://get.microsoft.com/images/en-us%20dark.svg)](https://www.microsoft.com/store/apps/9P681NKNBLSF)
+Il WinDateFrom UWP è stato cancellato dal microsoft store.
+Io l'ho aggiornato, microsoft lo aveva modificato per farlo funzionare solo sulla xbox e su windows si chiudeva, io ho preso l'idea ed ora su windows dice "unsupported platform" e si chiude, mentre su qualsiasi xbox one funziona.
+Per installarlo devete seguire le sebguenti ikstruzioni:
+https://learn.microsoft.com/en-us/windows/uwp/xbox-apps/devkit-activation
 
 # Donazioni
 
