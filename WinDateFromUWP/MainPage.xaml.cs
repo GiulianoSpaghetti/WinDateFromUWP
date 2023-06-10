@@ -7,6 +7,8 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
+using Windows.System.Profile.SystemManufacturers;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,10 +31,11 @@ namespace WinDateFromUWP
 
         public MainPage()
         {
+            MessageDialog d;
             string s;
             Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
             this.InitializeComponent();
-            container = localSettings.CreateContainer("WinDateFrom", Windows.Storage.ApplicationDataCreateDisposition.Existing);
+            container = localSettings.CreateContainer("WinDateFrom", Windows.Storage.ApplicationDataCreateDisposition.Always);
             s = localSettings.Containers["WinDateFrom"].Values["Data"] as string;
             if (s == null)
                 data.Date= DateTime.Now;
@@ -41,6 +44,19 @@ namespace WinDateFromUWP
             s = localSettings.Containers["WinDateFrom"].Values["Nome"] as string;
             if (s != null)
                 nome.Text = s;
+            if (!SystemSupportInfo.LocalDeviceInfo.SystemProductName.Contains("Xbox"))
+            {
+                d = new MessageDialog("System Unsupported");
+                d.Commands.Add(new UICommand(
+       "Exit",
+       new UICommandInvokedHandler(exit)));
+                IAsyncOperation<IUICommand> asyncOperation = d.ShowAsync();
+            }
+        }
+
+        private void exit(IUICommand command)
+        {
+            Application.Current.Exit();
         }
 
         private void calcola_Click(object sender, RoutedEventArgs e)
