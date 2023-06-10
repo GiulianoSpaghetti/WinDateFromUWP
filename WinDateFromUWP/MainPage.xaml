@@ -34,7 +34,7 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Image Source="background.jpg" Grid.ColumnSpan="2" Grid.RowSpan="6" Grid.Row="0" Grid.Column="0" />
+                <Image Source="background.jpg" Grid.ColumnSpan="2" Grid.RowSpan="6" Grid.Row="0" Grid.Column="0" Stretch="Fill"/>
                 <TextBlock x:Name="tbnome" Grid.Row="0" Grid.Column="0" Text="Insert the name: " />
                 <TextBox x:Name="nome" Grid.Row="0" Grid.Column="1" />
                 <TextBlock x:Name="tbdata" Grid.Row="1" Grid.Column="0" Text="Insert the date: " />
@@ -54,7 +54,7 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Image Source="background.jpg" Grid.Row="0" Grid.RowSpan="7"/>
+                <Image Source="background.jpg" Grid.Row="0" Grid.RowSpan="7" Stretch="Fill"/>
                 <TextBlock Grid.Row="0" Text="© Giulio Sorrentino 2023, some right reserved" />
                 <TextBlock Grid.Row="1" Text="If you give it a name and a date it shows how many time passess from that date" />
                 <TextBlock Grid.Row="2" Text="Special thanks to my three (mis)fortunes" />
