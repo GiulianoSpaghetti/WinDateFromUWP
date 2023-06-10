@@ -46,10 +46,8 @@ namespace WinDateFromUWP
                 nome.Text = s;
             if (!SystemSupportInfo.LocalDeviceInfo.SystemProductName.Contains("Xbox"))
             {
-                d = new MessageDialog("System Unsupported");
-                d.Commands.Add(new UICommand(
-       "Exit",
-       new UICommandInvokedHandler(exit)));
+                d = new MessageDialog("Unsupported platform");
+                d.Commands.Add(new UICommand("Exit", new UICommandInvokedHandler(exit)));
                 IAsyncOperation<IUICommand> asyncOperation = d.ShowAsync();
             }
         }
@@ -73,9 +71,9 @@ namespace WinDateFromUWP
             if (d.Day == data.Date.Day && differenza.TotalDays > 1)
             {
                 if (d.Month == data.Date.Month)
-                    anniversario.Text = $"Is your anniversary";
+                    anniversario.Text = "Is your anniversary";
                 else
-                    anniversario.Text = $"Is your mesiversary";
+                    anniversario.Text = "Is your mesiversary";
             }
             if (nome.Text != null && nome.Text != "")
                 risultato.Text = $"You meet {nome.Text} about {differenza.Days} days ago";
