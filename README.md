@@ -4,10 +4,7 @@ Il primo programma per pc e per console dedicato alle donne che non è un videog
 Serve per rompere il ghiaccio durante una relazione interpersonale, ossia per approcciare.
 # Come installare 
 
-Il WinDateFrom UWP è stato cancellato dal microsoft store.
-Io l'ho aggiornato, microsoft lo aveva modificato per farlo funzionare solo sulla xbox e su windows si chiudeva, io ho preso l'idea ed ora su windows dice "unsupported platform" e si chiude, mentre su qualsiasi xbox one funziona.
-Per installarlo devete seguire le sebguenti istruzioni:
-https://learn.microsoft.com/en-us/windows/uwp/xbox-apps/devkit-activation
+[![microsoft](https://get.microsoft.com/images/en-us%20dark.svg)](https://www.microsoft.com/store/apps/9P5LCSVWRMTF)
 
 # Donazione
 
