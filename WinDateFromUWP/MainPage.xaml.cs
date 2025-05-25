@@ -130,6 +130,7 @@ namespace WinDateFromUWP
         public async void augura_Click(object sender, RoutedEventArgs e)
         {
             await Launcher.LaunchUriAsync(new Uri($"https://twitter.com/intent/tweet?text=Happy%20{ricorrenza}%20my%20love."));
+            augura.IsEnabled = false;
         }
 
     }
