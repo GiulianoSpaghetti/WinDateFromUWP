@@ -28,15 +28,24 @@ namespace WinDateFromUWP
     {
         private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private Windows.Storage.ApplicationDataContainer container;
-
+        private Uri uri = new Uri("https://github.com/GiulianoSpaghetti/WinDateFromUWP");
+        private string ricorrenza;
         public MainPage()
         {
             MessageDialog d;
             string s;
             Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
             this.InitializeComponent();
-            container = localSettings.CreateContainer("WinDateFrom", Windows.Storage.ApplicationDataCreateDisposition.Always);
-            s = localSettings.Containers["WinDateFrom"].Values["Data"] as string;
+            try
+            {
+                container = localSettings.CreateContainer("WinDateFrom", Windows.Storage.ApplicationDataCreateDisposition.Existing);
+                s = localSettings.Containers["WinDateFrom"].Values["Data"] as string;
+            }
+            catch (Exception ex)
+            {
+                container = localSettings.CreateContainer("WinDateFrom", Windows.Storage.ApplicationDataCreateDisposition.Always);
+                s= null;
+            }
             if (s == null)
                 data.Date= DateTime.Now;
             else
@@ -44,7 +53,7 @@ namespace WinDateFromUWP
             s = localSettings.Containers["WinDateFrom"].Values["Nome"] as string;
             if (s != null)
                 nome.Text = s;
-            if (!SystemSupportInfo.LocalDeviceInfo.SystemProductName.Contains("Xbox"))
+            if (!SystemSupportInfo.LocalDeviceInfo.SystemProductName.Contains("Xbox") && !SystemSupportInfo.LocalDeviceInfo.SystemProductName.Contains("Surface"))
             {
                 d = new MessageDialog("Unsupported platform");
                 d.Commands.Add(new UICommand("Exit", new UICommandInvokedHandler(exit)));
@@ -61,6 +70,7 @@ namespace WinDateFromUWP
         {
             anniversario.Text = "";
             risultato.Text = "";
+            nome.Text = nome.Text.Trim();
             DateTime d = DateTime.Now;
             TimeSpan differenza = d - data.Date.Date;
             if (differenza.TotalDays < 0)
@@ -71,16 +81,29 @@ namespace WinDateFromUWP
             if (d.Day == data.Date.Day && differenza.TotalDays > 1)
             {
                 if (d.Month == data.Date.Month)
+                {
                     anniversario.Text = "Is your anniversary";
+                    ricorrenza = "anniversary";
+                }
                 else
+                {
                     anniversario.Text = "Is your mesiversary";
+                    ricorrenza = "mesiversary";
+                }
+
             }
             if (nome.Text != null && nome.Text != "")
                 risultato.Text = $"You meet {nome.Text} about {differenza.Days} days ago";
             else
-                risultato.Text = $"{differenza.Days} days are passed";
+              risultato.Text = $"{differenza.Days} days are passed";
+            if (ricorrenza!="" && nome.Text!="" && differenza.Days>0)
+            {
+                    augura.IsEnabled = true;
+            }
             localSettings.Containers["WinDateFrom"].Values["Data"] = data.Date.ToString();
-                localSettings.Containers["WinDateFrom"].Values["Nome"]=nome.Text;
+            localSettings.Containers["WinDateFrom"].Values["Nome"]=nome.Text;
+            localSettings.Containers["WinDateFrom"].Dispose();
+            calcola.IsEnabled = false;
         }
 
         private void OnInformationi_Clicked(object sender, RoutedEventArgs e)
@@ -101,7 +124,13 @@ namespace WinDateFromUWP
 
         public async void Informations_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("https://github.com/numerunix/WinDateFromUWP"));
+            await Launcher.LaunchUriAsync(uri);
         }
+
+        public async void augura_Click(object sender, RoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri($"https://twitter.com/intent/tweet?text=Happy%20{ricorrenza}%20my%20love."));
+        }
+
     }
 }

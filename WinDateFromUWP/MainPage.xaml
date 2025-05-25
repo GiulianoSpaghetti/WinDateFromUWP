@@ -39,8 +39,9 @@
                 <TextBox x:Name="nome" Grid.Row="0" Grid.Column="1" />
                 <TextBlock x:Name="tbdata" Grid.Row="1" Grid.Column="0" Text="Insert the date: " />
                 <DatePicker x:Name="data" Grid.Row="1" Grid.Column="1" />
-                <Button x:Name="calcola" Click="calcola_Click" Grid.Row="2" Grid.Column="0" Opacity="0.5">Calculate</Button>
+                <Button x:Name="calcola" Click="calcola_Click" Grid.Row="2" Grid.Column="0">Calculate</Button>
                 <TextBlock x:Name="risultato" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="" />
+                <Button x:Name="augura" Click="augura_Click" Grid.Row="2" Grid.Column="1" IsEnabled="false">Says you love her/him</Button>
                 <TextBlock x:Name="anniversario" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="" />
                 <Button Click="OnInformationi_Clicked" Grid.Row="5" Grid.Column="0">Informations</Button>
             </Grid>

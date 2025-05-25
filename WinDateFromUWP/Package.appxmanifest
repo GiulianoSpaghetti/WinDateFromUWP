@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="967792f0-a7c3-4c04-9617-bc4a0469f2e4"
-    Publisher="CN=numer"
-    Version="1.0.0.0" />
+    Name="21961GiulioSorrentino.31974FA39EC07"
+    Publisher="CN=943AD59F-3DA9-4CFA-998C-F0F7FC0A251B"
+    Version="2.0.1.0" />
 
-  <mp:PhoneIdentity PhoneProductId="967792f0-a7c3-4c04-9617-bc4a0469f2e4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="3b651ef9-afc9-4d63-a874-1f0c8744a36f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>WinDateFromUWP</DisplayName>
-    <PublisherDisplayName>numer</PublisherDisplayName>
+    <DisplayName>WinDateFrom</DisplayName>
+    <PublisherDisplayName>Giulio Sorrentino</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="WinDateFromUWP.App">
       <uap:VisualElements
-        DisplayName="WinDateFromUWP"
+        DisplayName="WinDateFrom"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="WinDateFromUWP"
